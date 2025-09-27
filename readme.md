@@ -1,5 +1,3 @@
-## A comprehensive multi-agent travel planner
-
 # 🌍 AI Multi-Agent Travel Planner
 
 An intelligent, interactive travel planning system powered by Google's Gemini AI that uses specialized expert agents to create personalized travel itineraries.
