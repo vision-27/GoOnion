@@ -944,11 +944,11 @@ def quick_start_demo():
     
     # Create a sample travel request
     demo_request = TravelRequest(
-        from_location="New York",
-        to_location="Paris",
-        preferred_dates=["2024-06-15", "2024-06-22"],
-        duration_days=7,
-        interests=["art", "food", "history"],
+        from_location="Sydney",
+        to_location="Hong Kong",
+        preferred_dates=["2025-06-15", "2025-06-18"],
+        duration_days=3,
+        interests=["nightlife", "food", "beach"],
         budget_range="medium",
         accommodation_type="hotel",
         time_preference="mixed"
@@ -965,12 +965,14 @@ def quick_start_demo():
     # Run a quick analysis
     print("\n🔍 Getting quick recommendations...")
     
-    # Just run one agent as a demo
+    # Call the agent with explicit parameters including duration_days
     attractions_analysis = coordinator.attractions_agent.query(
-        f"Recommend the best attractions in {demo_request.to_location} for someone interested in {', '.join(demo_request.interests)}."
+        f"Create a {demo_request.duration_days}-day itinerary for {demo_request.to_location} "
+        f"focusing on {', '.join(demo_request.interests)}. The trip is exactly {demo_request.duration_days} days long, "
+        f"not more, not less. Provide recommendations that fit within {demo_request.duration_days} days only."
     )
     
-    print(f"\n🎨 SAMPLE ATTRACTIONS ANALYSIS:")
+    print(f"\n🎨 SAMPLE {demo_request.duration_days}-DAY ATTRACTIONS ANALYSIS:")
     print("─" * 40)
     print(attractions_analysis)
     
@@ -978,7 +980,7 @@ def quick_start_demo():
 
 if __name__ == "__main__":
     # Uncomment the next line for a quick demo
-     quick_start_demo()
+    #quick_start_demo()
     
     # Run the full interactive planner
-    #main()
+    main()
